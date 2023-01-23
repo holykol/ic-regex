@@ -1,0 +1,16 @@
+{
+  "canisters": {
+    "regex": {
+      "candid": "src/regex/regex.did",
+      "package": "regex_ic",
+      "type": "rust"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "version": 1
+}

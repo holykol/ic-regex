@@ -1,0 +1,16 @@
+type Match = record {
+    text: text;
+    start: nat64;
+    end: nat64;
+};
+
+type Re = text;
+
+service : {
+    "precompile": (vec Re) -> ();
+    "purge_cache": () -> ();
+    "is_match": (Re, text) -> (bool) query;
+    "captures": (Re, text) -> (vec opt Match) query;
+    "batch_is_match": (Re, vec text) -> (vec bool) query;
+    "batch_captures": (Re, vec text) -> (vec vec opt Match) query;
+};
