@@ -3,7 +3,14 @@
     "regex": {
       "candid": "src/regex/regex.did",
       "package": "regex_ic",
-      "type": "rust"
+      "type": "rust",
+      "declarations": {
+        "node_compatibility": true
+      }
+    },
+    "example": {
+      "main": "src/example/main.mo",
+      "type": "motoko"
     }
   },
   "defaults": {

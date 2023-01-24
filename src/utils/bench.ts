@@ -8,38 +8,27 @@ const regex = createActor(canisterId, {
    })
 })
 
-const rx = "(?:-u(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]))"
+//const rx = "(?:-u(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]))"
+const rx = String.raw`([-!#-'*+/-9=?A-Z^-~]+(\.[-!#-'*+/-9=?A-Z^-~]+)*|"([]!#-[^-~ \t]|(\\[\t -~]))+")@[0-9A-Za-z]([0-9A-Za-z-]{0,61}[0-9A-Za-z])?(\.[0-9A-Za-z]([0-9A-Za-z-]{0,61}[0-9A-Za-z])?)+`
 
 async function precompile() {
    await regex.precompile([rx]);
 }
 
 async function captures() {
-   await regex.batch_is_match(rx, [].concat(...new Array(1).fill(ips)));
+   await regex.is_match_batch(rx, [].concat(...new Array(2).fill(ips)));
 }
 
 async function purge() {
    await regex.purge_cache()
 }
 
-
 const cfg = {
-   minTime: 1,
+   minTime: 2,
 }
 
 b.suite(
    'Regex',
-
-   b.add('With precompile', async () => {
-      await purge();
-      await precompile();
-      console.log("precompile called")
-
-      return async () => {
-         await captures();
-      }
-   }, cfg),
-
 
    b.add('Without precompile', async () => {
       await purge();
@@ -49,6 +38,11 @@ b.suite(
       }
    }, cfg),
 
+   b.add('With precompile', async () => {
+      await purge();
+      await precompile();
+      return captures
+   }, cfg),
 
    b.cycle(),
    b.complete(),
@@ -71,29 +65,16 @@ var ips = [
    "e250:c560:25e6:9308:f250:cd40:89e3:7acb",
    "4405:d466:c242:109b:ea7f:891c:1d38:226e",
    "131.225.160.247",
-   "2beb:bd92:ac9c:72cd:9433:de0c:d97b:7127",
-   "244.213.165.32",
-   "bac4:eaf5:d390:d0f1:192b:2535:b535:a045",
-   "119.207.217.147",
-   "194.172.135.180",
-   "2fc9:7186:eb54:3f13:941:2ddc:587b:c8ec",
-   "e613:6c99:a028:5162:f03b:def2:8940:9875",
-   "b8bc:40b7:e359:d7e3:ca33:c85f:7992:6042",
-   "afde:20ad:d0df:6abb:eee4:e30d:e2b3:49ab",
-   "94.217.109.123",
-   "140.141.160.137",
-   "146.206.57.199",
-   "dfda:5d8e:44d8:1103:e79f:3d41:dac9:2883",
-   "177.122.2.10",
-   "f0b0:e2f2:c798:1393:adc9:653a:8951:b906",
-   "10.120.36.121",
-   "103.182.139.231",
-   "b59a:52e1:fe2b:4b2f:f36e:e641:c03f:94b",
-   "b68c:f5de:d8ba:1a61:69dc:94e6:77d4:8251",
-   "80.145.120.92",
-   "e6ba:c767:35cb:9c56:f4dd:4f12:c20:46b8",
-   "f7b2:9e0f:2caf:3848:3b16:ba43:42e5:b0f3",
-   "242.23.67.83",
-   "78c7:a8cd:fc72:9016:3a68:c69c:6543:993d",
-   "72.55.166.127",
+   "sfoskett@msn.com",
+   "pakaste@aol.com",
+   "reziac@sbcglobal.net",
+   "ideguy@icloud.com",
+   "duchamp@yahoo.com",
+   "tarreau@mac.com",
+   "scottzed@live.com",
+   "lcheng@sbcglobal.net",
+   "wayward@sbcglobal.net",
+   "tangsh@verizon.net",
+   "tristan@icloud.com",
+   "keutzer@icloud.com",
 ];

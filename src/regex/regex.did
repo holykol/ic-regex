@@ -11,6 +11,6 @@ service : {
     "purge_cache": () -> ();
     "is_match": (Re, text) -> (bool) query;
     "captures": (Re, text) -> (vec opt Match) query;
-    "batch_is_match": (Re, vec text) -> (vec bool) query;
-    "batch_captures": (Re, vec text) -> (vec vec opt Match) query;
+    "is_match_batch": (Re, vec text) -> (vec bool) query;
+    "captures_batch": (Re, vec text) -> (vec vec opt Match) query;
 };

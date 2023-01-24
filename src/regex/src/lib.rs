@@ -39,7 +39,7 @@ fn is_match(pattern: String, text: String) -> bool {
 }
 
 #[query]
-fn batch_is_match(pattern: String, texts: Vec<String>) -> Vec<bool> {
+fn is_match_batch(pattern: String, texts: Vec<String>) -> Vec<bool> {
     with_regex(pattern, |re| {
         texts.into_iter().map(|s| re.is_match(&s)).collect()
     })
@@ -59,7 +59,7 @@ fn captures(pattern: String, text: String) -> Vec<Option<Match>> {
 }
 
 #[query]
-fn batch_captures(pattern: String, texts: Vec<String>) -> Vec<Vec<Option<Match>>> {
+fn captures_batch(pattern: String, texts: Vec<String>) -> Vec<Vec<Option<Match>>> {
     with_regex(pattern, |re| {
         texts
             .into_iter()
