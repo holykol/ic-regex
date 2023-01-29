@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "description": "Internet Computer starter application",
   "scripts": {
-    "bench": "npx ts-node --transpile-only ./src/utils/bench.ts"
+    "bench": "npx ts-node --transpile-only ./src/utils/bench.ts",
+    "test": "cargo test"
   },
   "devDependencies": {
     "@dfinity/agent": "0.15.1",

@@ -25,6 +25,9 @@ See [`./src/example/main.mo`](./src/example/main.mo) for a complete example.
 If you want to test your project locally, you can use the following commands:
 
 ```bash
+# needed for ic-kit to work
+git submodule update --init
+
 # install deps
 npm i
 
