@@ -40,7 +40,7 @@ fn precompile(c: &mut Cache, patterns: Vec<String>) {
 #[update]
 fn purge_cache(cache: &mut Cache) {
     cache.precompiled.clear();
-    cache.precompiled.shrink_to_fit()
+    cache.precompiled.shrink_to_fit();
 }
 
 #[query]

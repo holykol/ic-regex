@@ -13,7 +13,7 @@ actor GuestBook {
     end : Nat64;
   };
 
-  let Regex = actor "rkp4c-7iaaa-aaaaa-aaaca-cai" : actor {
+  let Regex = actor "2looq-saaaa-aaaak-qbv7a-cai" : actor {
     precompile : ([Re]) -> async ();
     is_match : query (Re, Text) -> async Bool;
     is_match_batch : query (Re, [Text]) -> async [Bool];

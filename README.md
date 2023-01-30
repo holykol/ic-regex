@@ -9,7 +9,7 @@ See [`./src/example/main.mo`](./src/example/main.mo) for a complete example.
 
 **Performance:**
 * Try to use `precompile` method to cache regexes that are going to be used a lot.
-* Always prefer to use `*_batch` methods, as queries to IC will take the longest time compared to actual matching.
+* Always prefer to use `*_batch` methods, as queries to IC will take more time compared to actual matching.
 
 **Limits:**
 * There is a 2MB call size limit, you will have to try very hard to reach it.
@@ -46,6 +46,15 @@ npm run bench
 ```
 
 Then visit Candid interface link last command gave you to try out available methods!
+
+## Deployed version
+Feel free to try publicly deployed version: **`2looq-saaaa-aaaak-qbv7a-cai`** ([Open in Candid UI](https://a4gq6-oaaaa-aaaab-qaa4q-cai.raw.ic0.app/?id=2looq-saaaa-aaaak-qbv7a-cai))
+
+Remember to donate some cycles to keep the сanister running for everybody:
+```bash
+# This command will send 1T cycles to the canister. Run from repo root
+dfx canister --network ic deposit-cycles 1000000000000 regex
+```
 
 ## Deploying yourself
 https://internetcomputer.org/docs/current/developer-docs/deploy/deploying-and-upgrading
