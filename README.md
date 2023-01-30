@@ -1,5 +1,7 @@
 # ic-regex
 
+[![Rust](https://github.com/holykol/ic-regex/actions/workflows/build.yml/badge.svg)](https://github.com/holykol/ic-regex/actions/workflows/build.yml)
+
 Welcome to `ic-regex`, a canister that exposes API of [`regex`](https://docs.rs/regex/latest/regex/) crate for your pattern matching needs on IC. It is intended to serve as a replacement until Motoko language adds a native regular expression library.
 
 ## Using from Motoko
